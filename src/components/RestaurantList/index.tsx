@@ -1,7 +1,7 @@
 import RestaurantModel from '../../models/Restaurant'
 import { Container } from '../../styles'
-import Restaurant from '../Restaurant'
-import { List } from './styles'
+import RestaurantCard from '../RestaurantCard'
+import Grid from '../Grid'
 
 type Props = {
   restaurants: RestaurantModel[]
@@ -9,18 +9,21 @@ type Props = {
 
 const RestaurantList = ({ restaurants }: Props) => (
   <Container>
-    <List>
-      {restaurants.map((restaurant) => (
-        <Restaurant
-          key={restaurant.id}
+    <Grid
+      items={restaurants}
+      columns={2}
+      gap="80px"
+      keyExtractor={(r) => r.id}
+      renderItem={(restaurant) => (
+        <RestaurantCard
           image={restaurant.image}
           infos={restaurant.infos}
           title={restaurant.title}
           rating={restaurant.rating}
           description={restaurant.description}
         />
-      ))}
-    </List>
+      )}
+    />
   </Container>
 )
 
