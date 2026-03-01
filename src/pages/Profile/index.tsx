@@ -4,6 +4,7 @@ import DishList from '../../components/DishList'
 import Header from '../../components/Header'
 
 import pizzaMarguerita from '../../assets/images/pizza_marguerita.png'
+import Footer from '../../components/Footer'
 
 const dishes: DishModel[] = [
   {
@@ -55,6 +56,7 @@ const Profile = () => (
     <Header />
     <Banner category="Italiana" title="La Dolce Vita Trattoria" />
     <DishList dishes={dishes} />
+    <Footer />
   </>
 )
 

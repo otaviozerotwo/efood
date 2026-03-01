@@ -3,7 +3,6 @@ import { List } from './styles'
 import Restaurant from '../../models/Restaurant'
 import Dish from '../../models/Dish'
 
-// Props used by the styled List (only styling-related)
 export type Props = {
   columns?: number
   gap?: string

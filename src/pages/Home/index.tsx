@@ -4,6 +4,7 @@ import RestaurantList from '../../components/RestaurantList'
 
 import hiokiSushi from '../../assets/images/hiroki_sushi.png'
 import laDolceVitta from '../../assets/images/la_dolce_vita_trattoria.png'
+import Footer from '../../components/Footer'
 
 const restaurants: Restaurant[] = [
   {
@@ -48,6 +49,7 @@ const Home = () => (
   <>
     <Hero />
     <RestaurantList restaurants={restaurants} />
+    <Footer />
   </>
 )
 
