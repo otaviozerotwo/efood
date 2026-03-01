@@ -1,25 +1,13 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import GlobalStyle from './styles'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
-
-const routes = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: 'profile',
-    element: <Profile />
-  }
-])
+import Router from './routes'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <RouterProvider router={routes} />
-    </>
+      <Router />
+    </BrowserRouter>
   )
 }
 
