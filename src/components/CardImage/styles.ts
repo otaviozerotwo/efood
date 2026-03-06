@@ -4,5 +4,5 @@ import { Props } from '.'
 export const Image = styled.img<Props>`
   display: block;
   padding: ${(props) => props.padding};
+  object-fit: cover;
 `
-// TODO: add object-fit

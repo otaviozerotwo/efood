@@ -6,7 +6,7 @@ export type Props = {
   image?: string
   imageAlt?: string
   badges?: React.ReactNode
-  children?: React.ReactNode // TODO: alterar tipo para JSX.Element
+  children?: React.ReactNode
   bgColor: string
   padding: string
 }
