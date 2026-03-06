@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
-import { Logo } from '../Hero/styles'
 import logo from '../../assets/images/logo.svg'
-import { HeaderBar, LinkCart, Title } from './styles'
+import { HeaderBar, LinkCart } from './styles'
+import { Container } from '../../styles'
 
 const Header = () => (
   <HeaderBar>
-    <Title>Restaurantes</Title>
-    <Link to="/">
-      <Logo src={logo} alt="logo" />
-    </Link>
-    <LinkCart href="#">0 produto(s) no carrinho</LinkCart>
+    <Container>
+      <h1>Restaurantes</h1>
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
+      <LinkCart href="#">0 produto(s) no carrinho</LinkCart>
+    </Container>
   </HeaderBar>
 )
 

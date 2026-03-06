@@ -28,7 +28,7 @@ export const BackGroundImage = styled.div`
     padding: 24px 0px 32px 0px;
   }
 `
-
+// TODO: remover componentes estilizados e usar tags HTML (h1 e h2)
 export const Title = styled.h1`
   font-weight: 900;
   font-size: 32px;
@@ -42,3 +42,4 @@ export const Category = styled.h2`
   color: ${variables.white};
   z-index: 2;
 `
+// TODO: passar z-index no container
