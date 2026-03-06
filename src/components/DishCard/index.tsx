@@ -18,8 +18,7 @@ const DishCard = ({ image, title, description }: Props) => (
   >
     <Title>{title}</Title>
     <Description>{description}</Description>
-    {/* TODO: ajustar title */}
-    <Button type="button" title="button">
+    <Button type="button" title="adicionar ao carrinho">
       Adicionar ao carrinho
     </Button>
   </Card>
