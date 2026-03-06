@@ -9,7 +9,7 @@ export const BackGroundImage = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 
-  &::before {
+  &::after {
     content: '';
     position: absolute;
     top: 0;
@@ -27,19 +27,20 @@ export const BackGroundImage = styled.div`
     justify-content: space-between;
     padding: 24px 0px 32px 0px;
   }
-`
-// TODO: remover componentes estilizados e usar tags HTML (h1 e h2)
-export const Title = styled.h1`
-  font-weight: 900;
-  font-size: 32px;
-  color: ${variables.white};
-  z-index: 1;
-`
 
-export const Category = styled.h2`
-  font-weight: 100;
-  font-size: 32px;
-  color: ${variables.white};
-  z-index: 2;
+  h1,
+  h2 {
+    font-size: 32px;
+    z-index: 1;
+  }
+
+  h1 {
+    font-weight: 900;
+    color: ${variables.white};
+  }
+
+  h2 {
+    font-weight: 100;
+    color: ${variables.white};
+  }
 `
-// TODO: passar z-index no container
