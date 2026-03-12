@@ -1,26 +1,14 @@
-class Restaurant {
-  id: number
-  image: string
-  infos: string[]
-  title: string
-  rating: number
-  description: string
+import Dish from './Dish'
 
-  constructor(
-    id: number,
-    image: string,
-    infos: string[],
-    title: string,
-    rating: number,
-    description: string
-  ) {
-    this.id = id
-    this.image = image
-    this.infos = infos
-    this.title = title
-    this.rating = rating
-    this.description = description
-  }
+type Restaurant = {
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: Dish[]
 }
 
 export default Restaurant

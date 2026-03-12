@@ -1,30 +1,31 @@
-import RestaurantModel from '../../models/Restaurant'
-import { Container } from '../../styles'
+import Restaurant from '../../models/Restaurant'
 import RestaurantCard from '../RestaurantCard'
 import Grid from '../Grid'
 
 type Props = {
-  restaurants: RestaurantModel[]
+  restaurants: Restaurant[]
 }
 
 const RestaurantList = ({ restaurants }: Props) => (
-  <Container>
-    <Grid
-      items={restaurants}
-      columns={2}
-      gap="80px"
-      keyExtractor={(r) => r.id}
-      renderItem={(restaurant) => (
-        <RestaurantCard
-          image={restaurant.image}
-          infos={restaurant.infos}
-          title={restaurant.title}
-          rating={restaurant.rating}
-          description={restaurant.description}
-        />
-      )}
-    />
-  </Container>
+  <>
+    <div className="container">
+      <Grid
+        items={restaurants}
+        columns={2}
+        gap="80px"
+        keyExtractor={(r) => r.id}
+        renderItem={(restaurant) => (
+          <RestaurantCard
+            image={restaurant.capa}
+            type={restaurant.tipo}
+            title={restaurant.titulo}
+            rating={restaurant.avaliacao}
+            description={restaurant.descricao}
+          />
+        )}
+      />
+    </div>
+  </>
 )
 
 export default RestaurantList

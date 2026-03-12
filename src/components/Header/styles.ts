@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import bgImage from '../../assets/images/hero_background.svg'
 import variables from '../../styles/variables'
-import { Container } from '../../styles'
 
 export const HeaderBar = styled.header`
   height: 164px;
@@ -9,7 +8,7 @@ export const HeaderBar = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
 
-  ${Container} {
+  .container {
     display: flex;
     align-items: center;
     justify-content: space-between;

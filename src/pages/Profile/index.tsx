@@ -1,63 +1,43 @@
-import DishModel from '../../models/Dish'
+import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner'
 import DishList from '../../components/DishList'
 import Header from '../../components/Header'
+import Modal from '../../components/Modal'
 
-import pizzaMarguerita from '../../assets/images/pizza_marguerita.png'
 import Footer from '../../components/Footer'
+import Dish from '../../models/Dish'
+// import { useParams } from 'react-router-dom'
 
-const dishes: DishModel[] = [
-  {
-    id: 1,
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 5,
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 6,
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
+const Profile = () => {
+  // const { id } = useParams()
+  const [dishes, setDishes] = useState<Dish[]>([])
+  const [selectedDish, setSelectedDish] = useState<Dish | null>(null)
+
+  useEffect(() => {
+    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setDishes(res))
+  }, [])
+
+  function handleOpenDish(dish: Dish) {
+    setSelectedDish(dish)
   }
-]
 
-const Profile = () => (
-  <>
-    <Header />
-    <Banner category="Italiana" title="La Dolce Vita Trattoria" />
-    <DishList dishes={dishes} />
-    <Footer />
-  </>
-)
+  function handleCloseModal() {
+    setSelectedDish(null)
+  }
+
+  return (
+    <>
+      <Header />
+      <Banner category="Italiana" title="La Dolce Vita Trattoria" />
+      <DishList dishes={dishes} onDishClick={handleOpenDish} />
+      <Footer />
+      {selectedDish ? (
+        <Modal dish={selectedDish} onClose={handleCloseModal} />
+      ) : null}
+    </>
+  )
+}
 
 export default Profile

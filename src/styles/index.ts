@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import variables from './variables'
 
 const GlobalStyle = createGlobalStyle`
@@ -14,12 +14,12 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${variables.seashell};
     color: ${variables.lobisterPink};
   }
-`
 
-export const Container = styled.div`
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
 `
 
 export default GlobalStyle

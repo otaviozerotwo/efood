@@ -8,7 +8,8 @@ import variables from '../../styles/variables'
 
 type Props = {
   image: string
-  infos: string[]
+  // highlighted: boolean
+  type: string
   title: string
   rating: number
   description: string
@@ -18,17 +19,16 @@ const RestaurantCard = ({
   image,
   title,
   rating,
-  infos,
-  description
+  description,
+  type
+  // highlighted
 }: Props) => (
   <Card
     image={image}
     imageAlt={title}
     bgColor={variables.white}
     padding="0px"
-    badges={infos.map((info) => (
-      <Tag key={info}>{info}</Tag>
-    ))}
+    badges={<Tag>{type}</Tag>}
   >
     <div className="header">
       <Title>{title}</Title>

@@ -1,14 +1,14 @@
 import DishModel from '../../models/Dish'
-import { Container } from '../../styles'
 import DishCard from '../DishCard'
 import Grid from '../Grid'
 
 type Props = {
   dishes: DishModel[]
+  onDishClick?: (dish: DishModel) => void
 }
 
-const DishList = ({ dishes }: Props) => (
-  <Container>
+const DishList = ({ dishes, onDishClick }: Props) => (
+  <div className="container">
     <Grid
       items={dishes}
       columns={3}
@@ -16,13 +16,14 @@ const DishList = ({ dishes }: Props) => (
       keyExtractor={(d) => d.id}
       renderItem={(dish) => (
         <DishCard
-          image={dish.image}
-          title={dish.title}
-          description={dish.description}
+          image={dish.foto}
+          title={dish.nome}
+          description={dish.descricao}
+          onClick={() => onDishClick && onDishClick(dish)}
         />
       )}
     />
-  </Container>
+  </div>
 )
 
 export default DishList

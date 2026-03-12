@@ -9,6 +9,7 @@ export type Props = {
   children?: React.ReactNode
   bgColor: string
   padding: string
+  onClick?: () => void
 }
 
 const Card = ({
@@ -17,9 +18,10 @@ const Card = ({
   badges,
   children,
   bgColor,
-  padding
+  padding,
+  onClick
 }: Props) => (
-  <CardContainer bgColor={bgColor}>
+  <CardContainer bgColor={bgColor} onClick={onClick}>
     <CardImage src={image ?? ''} alt={imageAlt ?? ''} padding={padding} />
     <Badges>{badges}</Badges>
     <CardBody>{children}</CardBody>

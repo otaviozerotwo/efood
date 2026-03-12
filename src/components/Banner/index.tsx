@@ -1,5 +1,4 @@
 import bgImage from '../../assets/images/img_banner.png'
-import { Container } from '../../styles'
 import { BackGroundImage } from './styles'
 
 type Props = {
@@ -9,10 +8,10 @@ type Props = {
 
 const Banner = ({ category, title }: Props) => (
   <BackGroundImage style={{ backgroundImage: `url(${bgImage})` }}>
-    <Container>
+    <div className="container">
       <h2>{category}</h2>
       <h1>{title}</h1>
-    </Container>
+    </div>
   </BackGroundImage>
 )
 

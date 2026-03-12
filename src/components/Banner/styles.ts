@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Container } from '../../styles'
 import variables from '../../styles/variables'
 
 export const BackGroundImage = styled.div`
@@ -20,7 +19,7 @@ export const BackGroundImage = styled.div`
     opacity: 0.5;
   }
 
-  ${Container} {
+  .container {
     height: 100%;
     display: flex;
     flex-direction: column;
