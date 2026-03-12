@@ -1,16 +1,15 @@
-import bgImage from '../../assets/images/img_banner.png'
+import Restaurant from '../../models/Restaurant'
 import { BackGroundImage } from './styles'
 
 type Props = {
-  category: string
-  title: string
+  restaurant: Restaurant
 }
 
-const Banner = ({ category, title }: Props) => (
-  <BackGroundImage style={{ backgroundImage: `url(${bgImage})` }}>
+const Banner = ({ restaurant }: Props) => (
+  <BackGroundImage style={{ backgroundImage: `url(${restaurant.capa})` }}>
     <div className="container">
-      <h2>{category}</h2>
-      <h1>{title}</h1>
+      <h2>{restaurant.tipo}</h2>
+      <h1>{restaurant.titulo}</h1>
     </div>
   </BackGroundImage>
 )

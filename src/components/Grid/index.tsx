@@ -1,14 +1,14 @@
 import React from 'react'
+import { List } from './styles'
 import Dish from '../../models/Dish'
 import Restaurant from '../../models/Restaurant'
-import { List } from './styles'
 
 export type Props = {
   columns?: number
   gap?: string
 }
 
-export type GridItem = Restaurant | Dish
+export type GridItem = Dish | Restaurant
 
 export type GridProps<T extends GridItem> = {
   items: T[]

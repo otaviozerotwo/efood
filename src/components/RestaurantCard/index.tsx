@@ -1,3 +1,4 @@
+import getDescription from '../../utils/getDescription'
 import Tag from '../Tag'
 import Card from '../Card'
 import { Description, Rating, Title } from './styles'
@@ -5,27 +6,17 @@ import { Description, Rating, Title } from './styles'
 import star from '../../assets/images/estrela.svg'
 import { Link } from 'react-router-dom'
 import variables from '../../styles/variables'
-import React from 'react'
-import getDescription from '../../utils/getDescription'
+import Restaurant from '../../models/Restaurant'
 
 type Props = {
-  image: string
+  restaurant: Restaurant
   infos: string[]
-  title: string
-  rating: number
-  description: string
 }
 
-const RestaurantCard = ({
-  image,
-  title,
-  rating,
-  description,
-  infos
-}: Props) => (
+const RestaurantCard = ({ restaurant, infos }: Props) => (
   <Card
-    image={image}
-    imageAlt={title}
+    image={restaurant.capa}
+    imageAlt={restaurant.titulo}
     bgColor={variables.white}
     padding="0px"
     badges={infos.map((info) => (
@@ -33,14 +24,14 @@ const RestaurantCard = ({
     ))}
   >
     <div className="header">
-      <Title>{title}</Title>
+      <Title>{restaurant.titulo}</Title>
       <Rating>
-        <span>{rating}</span>
+        <span>{restaurant.avaliacao}</span>
         <img src={star} alt="estrela" />
       </Rating>
     </div>
-    <Description>{getDescription(description)}</Description>
-    <Link to="/profile">
+    <Description>{getDescription(restaurant.descricao)}</Description>
+    <Link to={`/profile/${restaurant.id}`}>
       <Tag>Saiba mais</Tag>
     </Link>
   </Card>

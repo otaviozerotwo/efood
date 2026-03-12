@@ -31,11 +31,8 @@ const RestaurantList = ({ restaurants }: Props) => {
           keyExtractor={(r) => r.id}
           renderItem={(restaurant) => (
             <RestaurantCard
-              image={restaurant.capa}
+              restaurant={restaurant}
               infos={getRestaurantTags(restaurant)}
-              title={restaurant.titulo}
-              rating={restaurant.avaliacao}
-              description={restaurant.descricao}
             />
           )}
         />

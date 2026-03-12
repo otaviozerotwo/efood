@@ -23,7 +23,7 @@ const Modal = ({ onClose, dish }: Props) => (
         <p>{dish?.descricao ?? ''}</p>
         <p>{dish?.porcao}</p>
         <Button title="Adicionar ao carrinho" type="link">
-          Adicionar ao carrinho - R$ 60,90
+          {`Adicionar ao carrinho - R$ ${dish?.preco}`}
         </Button>
       </div>
     </ModalContent>

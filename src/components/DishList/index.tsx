@@ -1,10 +1,10 @@
-import DishModel from '../../models/Dish'
+import Dish from '../../models/Dish'
 import DishCard from '../DishCard'
 import Grid from '../Grid'
 
 type Props = {
-  dishes: DishModel[]
-  onDishClick?: (dish: DishModel) => void
+  dishes: Dish[]
+  onDishClick?: (dish: Dish) => void
 }
 
 const DishList = ({ dishes, onDishClick }: Props) => (
