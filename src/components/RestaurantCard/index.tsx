@@ -5,11 +5,12 @@ import { Description, Rating, Title } from './styles'
 import star from '../../assets/images/estrela.svg'
 import { Link } from 'react-router-dom'
 import variables from '../../styles/variables'
+import React from 'react'
+import getDescription from '../../utils/getDescription'
 
 type Props = {
   image: string
-  // highlighted: boolean
-  type: string
+  infos: string[]
   title: string
   rating: number
   description: string
@@ -20,15 +21,16 @@ const RestaurantCard = ({
   title,
   rating,
   description,
-  type
-  // highlighted
+  infos
 }: Props) => (
   <Card
     image={image}
     imageAlt={title}
     bgColor={variables.white}
     padding="0px"
-    badges={<Tag>{type}</Tag>}
+    badges={infos.map((info) => (
+      <Tag key={info}>{info}</Tag>
+    ))}
   >
     <div className="header">
       <Title>{title}</Title>
@@ -37,7 +39,7 @@ const RestaurantCard = ({
         <img src={star} alt="estrela" />
       </Rating>
     </div>
-    <Description>{description}</Description>
+    <Description>{getDescription(description)}</Description>
     <Link to="/profile">
       <Tag>Saiba mais</Tag>
     </Link>

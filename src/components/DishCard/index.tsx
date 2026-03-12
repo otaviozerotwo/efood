@@ -1,4 +1,5 @@
 import variables from '../../styles/variables'
+import getDescription from '../../utils/getDescription'
 import Button from '../Button'
 import Card from '../Card'
 import { Description, Title } from './styles'
@@ -19,7 +20,7 @@ const DishCard = ({ image, title, description, onClick }: Props) => (
     onClick={onClick}
   >
     <Title>{title}</Title>
-    <Description>{description}</Description>
+    <Description>{getDescription(description)}</Description>
     <Button type="button" title="adicionar ao carrinho">
       Adicionar ao carrinho
     </Button>
