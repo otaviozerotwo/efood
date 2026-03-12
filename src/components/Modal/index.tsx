@@ -2,6 +2,7 @@ import Dish from '../../models/Dish'
 import { Image, ModalContainer, ModalContent } from './styles'
 import closeIcon from '../../assets/images/close.png'
 import Button from '../Button'
+import formatPrice from '../../utils/formatPrice'
 
 type Props = {
   onClose?: () => void
@@ -21,9 +22,13 @@ const Modal = ({ onClose, dish }: Props) => (
       <div>
         <h4>{dish?.nome ?? ''}</h4>
         <p>{dish?.descricao ?? ''}</p>
-        <p>{dish?.porcao}</p>
-        <Button title="Adicionar ao carrinho" type="link">
-          {`Adicionar ao carrinho - R$ ${dish?.preco}`}
+        <p>Serve: de {dish?.porcao}</p>
+        <Button
+          title="Adicionar ao carrinho"
+          type="link"
+          className="add-to-cart"
+        >
+          {`Adicionar ao carrinho - ${formatPrice(dish?.preco)}`}
         </Button>
       </div>
     </ModalContent>

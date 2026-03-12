@@ -22,7 +22,7 @@ const DishCard = ({ image, title, description, onClick }: Props) => (
     <Title>{title}</Title>
     <Description>{getDescription(description)}</Description>
     <Button type="button" title="adicionar ao carrinho">
-      Adicionar ao carrinho
+      Mais detalhes
     </Button>
   </Card>
 )

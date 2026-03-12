@@ -12,10 +12,6 @@ export const ModalContainer = styled.div`
   justify-content: center;
   z-index: 1;
 
-  &.visible {
-    display: flex;
-  }
-
   .overlay {
     position: absolute;
     top: 0;
@@ -64,6 +60,12 @@ export const ModalContent = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
+  }
+
+  .add-to-cart {
+    height: 24px;
+    width: 218px;
+    text-align: center;
   }
 `
 
