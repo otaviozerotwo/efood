@@ -17,11 +17,10 @@ const DishCard = ({ image, title, description, onClick }: Props) => (
     imageAlt={title}
     bgColor={variables.lobisterPink}
     padding="8px 8px 0px 8px"
-    onClick={onClick}
   >
     <Title>{title}</Title>
     <Description>{getDescription(description)}</Description>
-    <Button type="button" title="adicionar ao carrinho">
+    <Button type="button" title="adicionar ao carrinho" onClick={onClick}>
       Mais detalhes
     </Button>
   </Card>

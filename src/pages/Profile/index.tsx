@@ -28,19 +28,19 @@ const Profile = () => {
     return dishes
   }
 
-  function handleOpenDish(dish: Dish) {
-    setSelectedDish(dish)
+  const handleOpenDishDetails = (dish: Dish) => {
+    return setSelectedDish(dish)
   }
 
-  function handleCloseModal() {
-    setSelectedDish(null)
+  const handleCloseModal = () => {
+    return setSelectedDish(null)
   }
 
   return (
     <>
       <Header />
       <Banner restaurant={restaurant} />
-      <DishList dishes={getDishes()} onDishClick={handleOpenDish} />
+      <DishList dishes={getDishes()} onDishClick={handleOpenDishDetails} />
       <Footer />
       {selectedDish ? (
         <Modal dish={selectedDish} onClose={handleCloseModal} />
