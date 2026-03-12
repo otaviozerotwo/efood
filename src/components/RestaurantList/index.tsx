@@ -28,7 +28,6 @@ const RestaurantList = ({ restaurants }: Props) => {
           items={restaurants}
           columns={2}
           gap="80px"
-          keyExtractor={(r) => r.id}
           renderItem={(restaurant) => (
             <RestaurantCard
               restaurant={restaurant}

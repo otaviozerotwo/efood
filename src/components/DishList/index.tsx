@@ -13,7 +13,6 @@ const DishList = ({ dishes, onDishClick }: Props) => (
       items={dishes}
       columns={3}
       gap="32px"
-      keyExtractor={(d) => d.id}
       renderItem={(dish) => (
         <DishCard
           image={dish.foto}

@@ -8,29 +8,25 @@ export type Props = {
   gap?: string
 }
 
-export type GridItem = Dish | Restaurant
+type GridItem = Dish | Restaurant
 
-export type GridProps<T extends GridItem> = {
+type GridProps<T extends GridItem> = {
   items: T[]
   renderItem: (item: T) => React.ReactNode
   columns?: number
   gap?: string
-  keyExtractor?: (item: T) => string | number
 }
 
 const Grid = <T extends GridItem>({
   items,
   renderItem,
   columns = 2,
-  gap = '80px',
-  keyExtractor
+  gap = '80px'
 }: GridProps<T>) => {
   return (
     <List columns={columns} gap={gap}>
       {items.map((item) => (
-        <li key={keyExtractor ? keyExtractor(item) : item.id}>
-          {renderItem(item)}
-        </li>
+        <li key={item.id}>{renderItem(item)}</li>
       ))}
     </List>
   )
