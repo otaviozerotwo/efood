@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Restaurant from '../../models/Restaurant'
+import { useGetRestaurantQuery } from '../../services/api'
 import Dish from '../../models/Dish'
 import Banner from '../../components/Banner'
 import DishList from '../../components/DishList'
@@ -10,14 +10,9 @@ import Footer from '../../components/Footer'
 
 const Profile = () => {
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant>()
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const { data: restaurant } = useGetRestaurantQuery(id!)
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null)
-
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res))
-  }, [id])
 
   if (!restaurant) {
     return <h3>Carregando...</h3>
