@@ -7,6 +7,7 @@ import DishList from '../../components/DishList'
 import Header from '../../components/Header'
 import Modal from '../../components/Modal'
 import Footer from '../../components/Footer'
+import Cart from '../../components/Cart'
 
 const Profile = () => {
   const { id } = useParams()
@@ -40,6 +41,7 @@ const Profile = () => {
       {selectedDish ? (
         <Modal dish={selectedDish} onClose={handleCloseModal} />
       ) : null}
+      <Cart />
     </>
   )
 }
