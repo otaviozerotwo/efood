@@ -1,14 +1,18 @@
-# Entrega: Exercício módulo 36
+# Entrega: Exercício módulo 37
 
-Neste exercício você deve:
+A entrega deste exercício consiste em:
 
 
 
-1) Utilizar como base esse layout: https://www.figma.com/file/JjduV2Tg713TzYUUsees8b/efood?type=design&node-id=0-1&mode=design
-2) Criar a modal utilizada ao clicar em "comprar o produto" e preencher o conteúdo do site por AJAX utilizando essa API: https://api-ebac.vercel.app/api/efood/restaurantes
-3) Subir as alterações no repositório
-4) Fazer um novo deploy
-5) Enviar o link do projeto na Vercel através da plataforma
+1) Utilizar como base layout https://www.figma.com/file/JjduV2Tg713TzYUUsees8b/efood?type=design&node-id=0-1&mode=design
+
+2) Crie a página do carrinho e também faça a dinâmica do preenchimento do carrinho através do Redux;
+
+3) No carrinho o valor da compra deverá ser a soma do preço dos produtos;
+
+4) Suba as alterações no repositório.
+
+5) Faça um novo deploy na Vercel, na plataforma da EBAC nos envie o link do projeto publicado.
 
 
 ⚠️Importante⚠️
