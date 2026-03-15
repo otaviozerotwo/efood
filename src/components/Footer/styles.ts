@@ -28,4 +28,5 @@ export const Icon = styled.a`
 
 export const Copyright = styled.p`
   font-size: 10px;
+  text-align: center;
 `

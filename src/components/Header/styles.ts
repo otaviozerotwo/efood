@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import bgImage from '../../assets/images/hero_background.svg'
 import variables from '../../styles/variables'
+import { breakpoints } from '../../styles'
 
 export const HeaderBar = styled.header`
   height: 164px;
@@ -23,6 +24,10 @@ export const HeaderBar = styled.header`
   img {
     display: block;
     height: 57.5px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
   }
 `
 

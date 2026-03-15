@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
+import { breakpoints } from '../../styles'
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -68,6 +69,19 @@ export const ModalContent = styled.div`
     justify-content: center;
     width: 218px;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 80%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+
+    .add-to-cart {
+      width: 100%;
+    }
+  }
 `
 
 export const Image = styled.img`
@@ -76,4 +90,10 @@ export const Image = styled.img`
   height: 280px;
   object-fit: cover;
   margin-right: 24px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    margin-bottom: 24px;
+    margin-right: 0;
+  }
 `
