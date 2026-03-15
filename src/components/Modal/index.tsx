@@ -16,6 +16,7 @@ const Modal = ({ onClose, dish }: Props) => {
 
   const addToCart = () => {
     dispatch(add(dish))
+    onClose()
     dispatch(open())
   }
 
