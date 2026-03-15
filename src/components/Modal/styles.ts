@@ -63,9 +63,10 @@ export const ModalContent = styled.div`
   }
 
   .add-to-cart {
-    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 218px;
-    text-align: center;
   }
 `
 

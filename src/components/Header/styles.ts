@@ -26,9 +26,10 @@ export const HeaderBar = styled.header`
   }
 `
 
-export const LinkCart = styled.a`
+export const CartButton = styled.a`
   text-decoration: none;
   color: ${variables.lobisterPink};
   font-size: 18px;
   font-weight: 900;
+  cursor: pointer;
 `
