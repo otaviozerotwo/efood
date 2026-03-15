@@ -35,7 +35,7 @@ const Modal = ({ onClose, dish }: Props) => {
           <p>Serve: de {dish.porcao}</p>
           <Button
             title="Adicionar ao carrinho"
-            type="link"
+            type="button"
             className="add-to-cart"
             onClick={addToCart}
           >
