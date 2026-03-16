@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
+import { breakpoints } from '../../styles'
 
 export const Container = styled.footer`
   display: flex;
@@ -29,4 +30,8 @@ export const Icon = styled.a`
 export const Copyright = styled.p`
   font-size: 10px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 80%;
+  }
 `
