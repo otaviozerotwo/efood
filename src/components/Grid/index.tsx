@@ -1,7 +1,7 @@
 import React from 'react'
+import Restaurant from '../../models/Restaurant'
 import { List } from './styles'
 import Dish from '../../models/Dish'
-import Restaurant from '../../models/Restaurant'
 
 export type Props = {
   columns?: number

@@ -1,12 +1,11 @@
+import Restaurant from '../../models/Restaurant'
 import getDescription from '../../utils/getDescription'
 import Tag from '../Tag'
 import Card from '../Card'
 import { Description, Rating, Title } from './styles'
-
 import star from '../../assets/images/estrela.svg'
 import { Link } from 'react-router-dom'
 import variables from '../../styles/variables'
-import Restaurant from '../../models/Restaurant'
 
 type Props = {
   restaurant: Restaurant
