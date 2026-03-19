@@ -3,14 +3,14 @@ import Restaurant from '../models/Restaurant'
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api-ebac.vercel.app/api/efood/restaurantes'
+    baseUrl: 'https://api-ebac.vercel.app/api/efood'
   }),
   endpoints: (builder) => ({
     getRestaurants: builder.query<Restaurant[], void>({
-      query: () => ''
+      query: () => '/restaurantes'
     }),
     getRestaurant: builder.query<Restaurant, string>({
-      query: (id) => `${id}`
+      query: (id) => `/restaurantes/${id}`
     })
   })
 })
