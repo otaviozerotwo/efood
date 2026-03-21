@@ -11,6 +11,9 @@ const api = createApi({
     }),
     getRestaurant: builder.query<Restaurant, string>({
       query: (id) => `/restaurantes/${id}`
+    }),
+    getDelivery: builder.query<Restaurant, string>({
+      query: (id) => `/checkout/${id}`
     })
   })
 })

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import variables from './variables'
 
 export const breakpoints = {
@@ -29,6 +29,14 @@ const GlobalStyle = createGlobalStyle`
       max-width: 80%;
     }
   }
+`
+
+export const Sidebar = styled.aside`
+  background-color: ${variables.lobisterPink};
+  padding: 32px 8px 0 8px;
+  max-width: 360px;
+  width: 100%;
+  z-index: 1;
 `
 
 export default GlobalStyle
