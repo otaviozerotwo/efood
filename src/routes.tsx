@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
-import DeliveryForm from './components/DeliveyForm'
+import Checkout from './components/Checkout'
 
 const Router = () => {
   const location = useLocation()
@@ -13,12 +13,11 @@ const Router = () => {
       <Routes location={background || location}>
         <Route path="/" element={<Home />} />
         <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/checkout" element={<DeliveryForm />} />
       </Routes>
 
       {background && (
         <Routes>
-          <Route path="/checkout" element={<DeliveryForm />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       )}
     </>
