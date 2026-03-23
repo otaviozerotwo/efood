@@ -34,6 +34,10 @@ export const Form = styled.form`
     margin-bottom: 24px;
   }
 
+  small {
+    color: ${variables.antiqueWhite};
+  }
+
   .button-group {
     margin-top: 24px;
     display: flex;
