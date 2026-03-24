@@ -16,7 +16,7 @@ export const HeaderBar = styled.header`
     padding-top: 40px;
   }
 
-  h1 {
+  h2 {
     font-size: 18px;
     font-weight: 900;
   }
@@ -27,7 +27,15 @@ export const HeaderBar = styled.header`
   }
 
   @media (max-width: ${breakpoints.tablet}) {
-    display: none;
+    height: 144px;
+
+    h2 {
+      display: none;
+    }
+
+    img {
+      height: 44px;
+    }
   }
 `
 
@@ -37,4 +45,8 @@ export const CartButton = styled.a`
   font-size: 18px;
   font-weight: 900;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 16px;
+  }
 `

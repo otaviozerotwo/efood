@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <HeaderBar>
       <div className="container">
-        <h1>Restaurantes</h1>
+        <h2>Restaurantes</h2>
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
