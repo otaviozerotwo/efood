@@ -5,11 +5,13 @@ import * as Yup from 'yup'
 import Button from '../Button'
 import { Container, Form, InputGroup, Row } from './styles'
 import { Sidebar } from '../../styles'
+import { usePurchaseMutation } from '../../services/api'
 
 const Checkout = () => {
   const [displayDeliveryForm, setDisplayDeliveryForm] = useState(true)
   const [displayPaymentForm, setDisplayPaymentForm] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [purchase, { isLoading, isError, data }] = usePurchaseMutation()
 
   const navigate = useNavigate()
 
@@ -81,7 +83,35 @@ const Checkout = () => {
       )
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        products: [
+          {
+            id: 1,
+            price: 10
+          }
+        ],
+        delivery: {
+          receiver: values.fullName,
+          address: {
+            description: values.address,
+            city: values.city,
+            zipCode: values.cep,
+            number: Number(values.number),
+            complement: values.complement
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardDisplayName,
+            number: values.cardNumber,
+            code: Number(values.cardCode),
+            expires: {
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
+            }
+          }
+        }
+      })
     }
   })
 
