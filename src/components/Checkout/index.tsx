@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { RootReducer } from '../../store'
+import { clear, close } from '../../store/reducers/cart'
 import { usePurchaseMutation } from '../../services/api'
 import * as Yup from 'yup'
 import { IMaskInput } from 'react-imask'
@@ -17,8 +18,15 @@ const Checkout = () => {
   const [step, setStep] = useState<Step>('delivery')
   const [purchase, { isLoading, data, isSuccess }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
 
   const form = useFormik({
     initialValues: {
@@ -166,7 +174,8 @@ const Checkout = () => {
   }
 
   const handleFinishOrder = () => {
-    alert('OK')
+    dispatch(close())
+    navigate('/', { replace: true })
   }
 
   return (
