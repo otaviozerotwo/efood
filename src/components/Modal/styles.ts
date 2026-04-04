@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 import { breakpoints } from '../../styles'
 
 export const ModalContainer = styled.div`
@@ -36,7 +36,7 @@ export const ModalContent = styled.div`
   display: flex;
   max-width: 1024px;
   width: 100%;
-  background-color: ${variables.lobisterPink};
+  background-color: ${colors.lobisterPink};
   position: relative;
   z-index: 2;
   padding: 32px;
@@ -48,7 +48,7 @@ export const ModalContent = styled.div`
 
   h4,
   p {
-    color: ${variables.white};
+    color: ${colors.white};
     margin-bottom: 16px;
   }
 

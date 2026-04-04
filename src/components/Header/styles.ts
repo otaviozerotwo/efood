@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import bgImage from '../../assets/images/hero_background.svg'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 import { breakpoints } from '../../styles'
 
 export const HeaderBar = styled.header`
@@ -32,7 +32,7 @@ export const HeaderBar = styled.header`
 
 export const CartButton = styled.a`
   text-decoration: none;
-  color: ${variables.lobisterPink};
+  color: ${colors.lobisterPink};
   font-size: 18px;
   font-weight: 900;
   cursor: pointer;

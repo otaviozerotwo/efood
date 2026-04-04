@@ -3,9 +3,9 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import Button from '../Button'
-import formatPrice from '../../utils/formatPrice'
-import { CartContainer, CartItem, Overlay, Prices } from './styles'
+import * as S from './styles'
 import { Sidebar } from '../../styles'
+import { getTotalPrice, parseToBrl } from '../../utils'
 
 const Cart = () => {
   const location = useLocation()
@@ -23,36 +23,30 @@ const Cart = () => {
     dispatch(close())
   }
 
-  const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco)
-    }, 0)
-  }
-
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart} />
       <Sidebar>
         <ul>
           {items.map((item) => (
-            <CartItem key={item.id}>
+            <S.CartItem key={item.id}>
               <img src={item.foto} alt={item.nome} />
               <div>
                 <h3>{item.nome}</h3>
-                <span>{formatPrice(item.preco)}</span>
+                <span>{parseToBrl(item.preco)}</span>
               </div>
               <button type="button" onClick={() => removeItem(item.id)} />
-            </CartItem>
+            </S.CartItem>
           ))}
         </ul>
-        <Prices>
+        <S.Prices>
           <p>Valor total</p>
-          <p>{formatPrice(getTotalPrice())}</p>
-        </Prices>
+          <p>{parseToBrl(getTotalPrice(items))}</p>
+        </S.Prices>
         <Button
           title="Clique aqui para continuar com a entrega"
           type="button"
@@ -61,7 +55,7 @@ const Cart = () => {
           Continuar com a entrega
         </Button>
       </Sidebar>
-    </CartContainer>
+    </S.CartContainer>
   )
 }
 

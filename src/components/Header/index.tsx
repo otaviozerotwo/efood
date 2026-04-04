@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
-import { HeaderBar, CartButton } from './styles'
+import * as S from './styles'
 import Logo from '../Logo'
 
 const Header = () => {
@@ -13,15 +13,15 @@ const Header = () => {
   }
 
   return (
-    <HeaderBar>
+    <S.HeaderBar>
       <div className="container">
         <h2>Restaurantes</h2>
         <Logo />
-        <CartButton onClick={openCart}>
+        <S.CartButton onClick={openCart}>
           {items.length} produto(s) no carrinho
-        </CartButton>
+        </S.CartButton>
       </div>
-    </HeaderBar>
+    </S.HeaderBar>
   )
 }
 

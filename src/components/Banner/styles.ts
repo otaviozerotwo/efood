@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 
 export const BackGroundImage = styled.div`
   height: 280px;
@@ -15,7 +15,7 @@ export const BackGroundImage = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${variables.black};
+    background-color: ${colors.black};
     opacity: 0.5;
   }
 
@@ -35,11 +35,11 @@ export const BackGroundImage = styled.div`
 
   h1 {
     font-weight: 900;
-    color: ${variables.white};
+    color: ${colors.white};
   }
 
   h2 {
     font-weight: 100;
-    color: ${variables.white};
+    color: ${colors.white};
   }
 `

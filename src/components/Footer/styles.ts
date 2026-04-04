@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 import { breakpoints } from '../../styles'
 
 export const Container = styled.footer`
@@ -9,7 +9,7 @@ export const Container = styled.footer`
   justify-content: space-between;
   height: 298px;
   width: 100%;
-  background-color: ${variables.antiqueWhite};
+  background-color: ${colors.antiqueWhite};
   padding: 40px 0px;
 `
 

@@ -1,8 +1,8 @@
-import variables from '../../styles/variables'
-import getDescription from '../../utils/getDescription'
+import variables from '../../styles/colors'
+import { getDescription } from '../../utils'
 import Button from '../Button'
 import Card from '../Card'
-import { Description, Title } from './styles'
+import * as S from './styles'
 
 type Props = {
   image: string
@@ -18,9 +18,13 @@ const DishCard = ({ image, title, description, onClick }: Props) => (
     bgColor={variables.lobisterPink}
     padding="8px 8px 0px 8px"
   >
-    <Title>{title}</Title>
-    <Description>{getDescription(description)}</Description>
-    <Button type="button" title="adicionar ao carrinho" onClick={onClick}>
+    <S.Title>{title}</S.Title>
+    <S.Description>{getDescription(description)}</S.Description>
+    <Button
+      type="button"
+      title="Clique aqui para ver mais detalhes"
+      onClick={onClick}
+    >
       Mais detalhes
     </Button>
   </Card>

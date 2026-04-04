@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardContainer, CardBody, Badges } from './styles'
+import * as S from './styles'
 import CardImage from '../CardImage'
 
 export type Props = {
@@ -19,11 +19,11 @@ const Card = ({
   bgColor,
   padding
 }: Props) => (
-  <CardContainer bgColor={bgColor}>
+  <S.CardContainer bgColor={bgColor}>
     <CardImage src={image ?? ''} alt={imageAlt ?? ''} padding={padding} />
-    <Badges>{badges}</Badges>
-    <CardBody>{children}</CardBody>
-  </CardContainer>
+    <S.Badges>{badges}</S.Badges>
+    <S.CardBody>{children}</S.CardBody>
+  </S.CardContainer>
 )
 
 export default Card

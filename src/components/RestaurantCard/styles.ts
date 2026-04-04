@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 
 export const Title = styled.h3`
   display: block;
@@ -7,7 +7,7 @@ export const Title = styled.h3`
 `
 
 export const Description = styled.p`
-  color: ${variables.lobisterPink};
+  color: ${colors.lobisterPink};
   font-size: 14px;
   line-height: 22px;
   display: block;

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 
 export const TagContainer = styled.div`
   display: inline-block;
-  background-color: ${variables.lobisterPink};
+  background-color: ${colors.lobisterPink};
   padding: 6px 4px;
-  color: ${variables.antiqueWhite};
+  color: ${colors.antiqueWhite};
   font-size: 12px;
   font-weight: bold;
 

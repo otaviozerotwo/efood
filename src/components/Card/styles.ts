@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 import { Props } from '.'
 
 export const CardContainer = styled.div<Omit<Props, 'padding'>>`
-  background-color: ${(props) => props.bgColor ?? variables.antiqueWhite};
+  background-color: ${(props) => props.bgColor ?? colors.antiqueWhite};
   position: relative;
   margin-bottom: 48px;
 `
@@ -12,7 +12,7 @@ export const CardBody = styled.div`
   padding: 8px;
   border-style: solid;
   border-width: 0px 1px 1px 1px;
-  border-color: ${variables.lobisterPink};
+  border-color: ${colors.lobisterPink};
 
   .header {
     display: flex;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 import trashIcon from '../../assets/images/lixeira.png'
 
 export const Overlay = styled.div`
@@ -8,7 +8,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${variables.black};
+  background-color: ${colors.black};
   opacity: 0.8;
 `
 
@@ -32,14 +32,14 @@ export const Prices = styled.div`
   justify-content: space-between;
   font-weight: bold;
   font-size: 14px;
-  color: ${variables.antiqueWhite};
+  color: ${colors.antiqueWhite};
   margin-top: 40px;
   margin-bottom: 16px;
 `
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${variables.antiqueWhite};
+  background-color: ${colors.antiqueWhite};
   position: relative;
   padding: 8px 8px 12px 8px;
   margin-bottom: 16px;

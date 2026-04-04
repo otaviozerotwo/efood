@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
+import colors from '../../styles/colors'
 
 type InputGroupProps = {
   maxWidth?: string
@@ -24,18 +24,18 @@ export const Form = styled.form`
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 16px;
-    color: ${variables.antiqueWhite};
+    color: ${colors.antiqueWhite};
   }
 
   p {
     font-size: 14px;
     line-height: 22px;
-    color: ${variables.antiqueWhite};
+    color: ${colors.antiqueWhite};
     margin-bottom: 24px;
   }
 
   small {
-    color: ${variables.antiqueWhite};
+    color: ${colors.antiqueWhite};
   }
 
   .button-group {
@@ -63,15 +63,15 @@ export const InputGroup = styled.div<InputGroupProps>`
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: ${variables.antiqueWhite};
+    color: ${colors.antiqueWhite};
   }
 
   input {
     height: 32px;
     width: 100%;
-    background-color: ${variables.antiqueWhite};
+    background-color: ${colors.antiqueWhite};
     margin-bottom: 8px;
     padding: 0 8px;
-    border: 1px solid ${variables.antiqueWhite};
+    border: 1px solid ${colors.antiqueWhite};
   }
 `

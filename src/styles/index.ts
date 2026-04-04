@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import variables from './variables'
+import colors from './colors'
 
 export const breakpoints = {
   desktop: '1024px',
@@ -16,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${variables.seashell};
-    color: ${variables.lobisterPink};
+    background-color: ${colors.seashell};
+    color: ${colors.lobisterPink};
   }
 
   .container {
@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 export const Sidebar = styled.aside`
-  background-color: ${variables.lobisterPink};
+  background-color: ${colors.lobisterPink};
   padding: 32px 8px 0 8px;
   max-width: 360px;
   width: 100%;

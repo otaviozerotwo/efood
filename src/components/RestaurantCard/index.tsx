@@ -1,11 +1,11 @@
 import Restaurant from '../../models/Restaurant'
-import getDescription from '../../utils/getDescription'
+import { Link } from 'react-router-dom'
 import Tag from '../Tag'
 import Card from '../Card'
-import { Description, Rating, Title } from './styles'
 import star from '../../assets/images/estrela.svg'
-import { Link } from 'react-router-dom'
-import variables from '../../styles/variables'
+import * as S from './styles'
+import variables from '../../styles/colors'
+import { getDescription } from '../../utils'
 
 type Props = {
   restaurant: Restaurant
@@ -23,13 +23,13 @@ const RestaurantCard = ({ restaurant, infos }: Props) => (
     ))}
   >
     <div className="header">
-      <Title>{restaurant.titulo}</Title>
-      <Rating>
+      <S.Title>{restaurant.titulo}</S.Title>
+      <S.Rating>
         <span>{restaurant.avaliacao}</span>
         <img src={star} alt="estrela" />
-      </Rating>
+      </S.Rating>
     </div>
-    <Description>{getDescription(restaurant.descricao)}</Description>
+    <S.Description>{getDescription(restaurant.descricao)}</S.Description>
     <Link to={`/profile/${restaurant.id}`}>
       <Tag>Saiba mais</Tag>
     </Link>
