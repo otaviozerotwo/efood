@@ -49,7 +49,7 @@ export const Form = styled.form`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  // align-items: flex-end;
   gap: 34px;
 `
 

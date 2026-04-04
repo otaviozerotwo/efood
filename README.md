@@ -29,3 +29,4 @@ Para garantir consistência na realização da tarefa, faça a sua escolha entre
 * GitHub Pages
 * Cloudflare Pages
 * Vercel
+

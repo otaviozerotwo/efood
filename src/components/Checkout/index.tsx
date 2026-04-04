@@ -1,38 +1,19 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
+import { usePurchaseMutation } from '../../services/api'
 import * as Yup from 'yup'
 import Button from '../Button'
 import { Container, Form, InputGroup, Row } from './styles'
 import { Sidebar } from '../../styles'
-import { usePurchaseMutation } from '../../services/api'
+
+type Step = 'delivery' | 'payment' | 'success'
 
 const Checkout = () => {
-  const [displayDeliveryForm, setDisplayDeliveryForm] = useState(true)
-  const [displayPaymentForm, setDisplayPaymentForm] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
+  const [step, setStep] = useState<Step>('delivery')
   const [purchase, { isLoading, isError, data }] = usePurchaseMutation()
 
   const navigate = useNavigate()
-
-  const handleBackToCart = () => {
-    navigate(-1)
-  }
-
-  const handleContinueWithPayment = () => {
-    setDisplayDeliveryForm(false)
-    setDisplayPaymentForm(true)
-  }
-
-  const handleGoToDeliveryForm = () => {
-    setDisplayPaymentForm(false)
-    setDisplayDeliveryForm(true)
-  }
-
-  const handleFinishOrderMessage = () => {
-    setDisplayPaymentForm(false)
-    setIsSuccess(true)
-  }
 
   const form = useFormik({
     initialValues: {
@@ -59,30 +40,32 @@ const Checkout = () => {
         .min(5, 'A cidade precisa ter pelo menos 5 caracteres')
         .required('O campo é obrigatório'),
       cep: Yup.string()
-        .min(5, 'O CEP precisa ter 9 caracteres')
-        .max(5, 'O CEP precisa ter 9 caracteres')
+        .min(9, 'O CEP precisa ter 9 caracteres')
+        .max(9, 'O CEP precisa ter 9 caracteres')
         .required('O campo é obrigatório'),
       number: Yup.string()
         .min(1, 'O número precisa ter pelo menos 1 caracter')
         .required('O campo é obrigatório'),
       complement: Yup.string(),
       cardDisplayName: Yup.string().when((values, schema) =>
-        displayPaymentForm ? schema.required('O campo é obrigatório') : schema
+        step === 'payment' ? schema.required('O campo é obrigatório') : schema
       ),
       cardNumber: Yup.string().when((values, schema) =>
-        displayPaymentForm ? schema.required('O campo é obrigatório') : schema
+        step === 'payment' ? schema.required('O campo é obrigatório') : schema
       ),
       cardCode: Yup.string().when((values, schema) =>
-        displayPaymentForm ? schema.required('O campo é obrigatório') : schema
+        step === 'payment' ? schema.required('O campo é obrigatório') : schema
       ),
       expiresMonth: Yup.string().when((values, schema) =>
-        displayPaymentForm ? schema.required('O campo é obrigatório') : schema
+        step === 'payment' ? schema.required('O campo é obrigatório') : schema
       ),
       expiresYear: Yup.string().when((values, schema) =>
-        displayPaymentForm ? schema.required('O campo é obrigatório') : schema
+        step === 'payment' ? schema.required('O campo é obrigatório') : schema
       )
     }),
     onSubmit: (values) => {
+      console.log(values)
+
       purchase({
         products: [
           {
@@ -115,6 +98,14 @@ const Checkout = () => {
     }
   })
 
+  const handleDeliveryForm = () => {
+    setStep('payment')
+  }
+
+  const handleBackToCart = () => {
+    navigate(-1)
+  }
+
   const getErrorMessage = (fieldName: string, message?: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
@@ -127,7 +118,7 @@ const Checkout = () => {
     <Container>
       <Sidebar>
         <Form onSubmit={form.handleSubmit}>
-          {displayDeliveryForm && (
+          {step === 'delivery' && (
             <>
               <h2>Entrega</h2>
               <InputGroup>
@@ -154,9 +145,7 @@ const Checkout = () => {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
-                <small>
-                  {getErrorMessage('address', form.errors.fullName)}
-                </small>
+                <small>{getErrorMessage('address', form.errors.address)}</small>
               </InputGroup>
               <InputGroup>
                 <label htmlFor="city">Cidade</label>
@@ -168,7 +157,7 @@ const Checkout = () => {
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                 />
-                <small>{getErrorMessage('city', form.errors.fullName)}</small>
+                <small>{getErrorMessage('city', form.errors.city)}</small>
               </InputGroup>
               <Row>
                 <InputGroup>
@@ -181,7 +170,7 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
-                  <small>{getErrorMessage('cep', form.errors.fullName)}</small>
+                  <small>{getErrorMessage('cep', form.errors.cep)}</small>
                 </InputGroup>
                 <InputGroup>
                   <label htmlFor="number">Número</label>
@@ -193,9 +182,7 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                   />
-                  <small>
-                    {getErrorMessage('number', form.errors.fullName)}
-                  </small>
+                  <small>{getErrorMessage('number', form.errors.number)}</small>
                 </InputGroup>
               </Row>
               <InputGroup>
@@ -209,7 +196,7 @@ const Checkout = () => {
                   onBlur={form.handleBlur}
                 />
                 <small>
-                  {getErrorMessage('complement', form.errors.fullName)}
+                  {getErrorMessage('complement', form.errors.complement)}
                 </small>
               </InputGroup>
 
@@ -217,12 +204,12 @@ const Checkout = () => {
                 <Button
                   title="Clique aqui para continuar com o pagamento"
                   type="button"
-                  onClick={handleContinueWithPayment}
+                  onClick={handleDeliveryForm}
                 >
                   Continuar com o pagamento
                 </Button>
                 <Button
-                  title="Clique aqui para continuar com o pagamento"
+                  title="Clique aqui para voltar para o carrinho"
                   type="button"
                   onClick={handleBackToCart}
                 >
@@ -231,7 +218,7 @@ const Checkout = () => {
               </div>
             </>
           )}
-          {displayPaymentForm && (
+          {step === 'payment' && (
             <>
               <h2>Pagamento - Valor a pagar R$ 190,90</h2>
               <InputGroup>
@@ -245,7 +232,10 @@ const Checkout = () => {
                   onBlur={form.handleBlur}
                 />
                 <small>
-                  {getErrorMessage('cardDisplayName', form.errors.fullName)}
+                  {getErrorMessage(
+                    'cardDisplayName',
+                    form.errors.cardDisplayName
+                  )}
                 </small>
               </InputGroup>
               <Row>
@@ -260,7 +250,7 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>
-                    {getErrorMessage('cardNumber', form.errors.fullName)}
+                    {getErrorMessage('cardNumber', form.errors.cardNumber)}
                   </small>
                 </InputGroup>
                 <InputGroup maxWidth="87px">
@@ -274,7 +264,7 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>
-                    {getErrorMessage('cardCode', form.errors.fullName)}
+                    {getErrorMessage('cardCode', form.errors.cardCode)}
                   </small>
                 </InputGroup>
               </Row>
@@ -290,7 +280,7 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>
-                    {getErrorMessage('expiresMonth', form.errors.fullName)}
+                    {getErrorMessage('expiresMonth', form.errors.expiresMonth)}
                   </small>
                 </InputGroup>
                 <InputGroup>
@@ -304,32 +294,35 @@ const Checkout = () => {
                     onBlur={form.handleBlur}
                   />
                   <small>
-                    {getErrorMessage('expiresYear', form.errors.fullName)}
+                    {getErrorMessage('expiresYear', form.errors.expiresYear)}
                   </small>
                 </InputGroup>
               </Row>
 
               <div className="button-group">
                 <Button
-                  title="Clique aqui para continuar com o pagamento"
-                  type="button"
-                  onClick={handleFinishOrderMessage}
+                  title="Clique aqui para finalizar o pagamento"
+                  type="submit"
+                  disabled={isLoading}
+                  onClick={form.handleSubmit}
                 >
-                  Finalizar pagamento
+                  {isLoading
+                    ? 'Finalizando pagamento...'
+                    : 'Finalizar pagamento'}
                 </Button>
                 <Button
-                  title="Clique aqui para continuar com o pagamento"
+                  title="Clique aqui para voltar para a edição de endereço"
                   type="button"
-                  onClick={handleGoToDeliveryForm}
+                  onClick={() => setStep('delivery')}
                 >
                   Voltar para a edição de endereço
                 </Button>
               </div>
             </>
           )}
-          {isSuccess && (
+          {step === 'success' && (
             <>
-              <h2>Pedido realizado - ORDER_ID</h2>
+              <h2>Pedido realizado - {data.orderId}</h2>
               <p>
                 Estamos felizes em informar que seu pedido já está em processo
                 de preparação e, em breve, será entregue no endereço fornecido.
