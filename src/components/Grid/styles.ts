@@ -9,6 +9,12 @@ export const List = styled.ul<Props>`
   margin-top: 80px;
   margin-bottom: 120px;
 
+  li {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   @media (max-width: ${breakpoints.desktop}) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;

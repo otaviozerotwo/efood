@@ -14,4 +14,9 @@ export const Description = styled.p`
   line-height: 22px;
   display: block;
   margin: 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `

@@ -6,6 +6,9 @@ export const CardContainer = styled.div<Omit<Props, 'padding'>>`
   background-color: ${(props) => props.bgColor ?? colors.antiqueWhite};
   position: relative;
   margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `
 
 export const CardBody = styled.div`
