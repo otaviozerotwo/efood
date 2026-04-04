@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetRestaurantQuery } from '../../services/api'
-import Dish from '../../models/Dish'
 import Banner from '../../components/Banner'
 import DishList from '../../components/DishList'
 import Header from '../../components/Header'

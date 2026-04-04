@@ -1,4 +1,3 @@
-import Dish from '../../models/Dish'
 import DishCard from '../DishCard'
 import Grid from '../Grid'
 import Loader from '../Loader'

@@ -35,7 +35,7 @@ const Checkout = () => {
     },
     validationSchema: Yup.object({
       fullName: Yup.string()
-        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .min(3, 'O nome precisa ter pelo menos 5 caracteres')
         .required('O campo é obrigatório'),
       address: Yup.string()
         .min(5, 'O endereço precisa ter pelo menos 5 caracteres')
@@ -52,19 +52,40 @@ const Checkout = () => {
         .required('O campo é obrigatório'),
       complement: Yup.string(),
       cardDisplayName: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .min(6, 'O nome precisa ter pelo menos 6 caracteres')
+              .required('O campo é obrigatório')
+          : schema
       ),
       cardNumber: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .min(15, 'O cartão precisa ter pelo menos 15 caracteres')
+              .required('O campo é obrigatório')
+          : schema
       ),
       cardCode: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .min(3, 'O CVV precisa ter pelo menos 3 caracteres')
+              .required('O campo é obrigatório')
+          : schema
       ),
       expiresMonth: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .min(2, 'O mês de vencimento precisa ter pelo menos 2 caracteres')
+              .required('O campo é obrigatório')
+          : schema
       ),
       expiresYear: Yup.string().when((values, schema) =>
-        step === 'payment' ? schema.required('O campo é obrigatório') : schema
+        step === 'payment'
+          ? schema
+              .min(4, 'O ano de vencimento precisa ter 4 caracteres')
+              .max(4, 'O mês de vencimento precisa ter 4 caracteres')
+              .required('O campo é obrigatório')
+          : schema
       )
     }),
     onSubmit: (values) => {

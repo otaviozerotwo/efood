@@ -1,4 +1,3 @@
-import Restaurant from '../../models/Restaurant'
 import Loader from '../Loader'
 import { BackGroundImage } from './styles'
 

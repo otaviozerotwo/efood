@@ -1,4 +1,3 @@
-import Restaurant from '../../models/Restaurant'
 import RestaurantCard from '../RestaurantCard'
 import Grid from '../Grid'
 import Loader from '../Loader'

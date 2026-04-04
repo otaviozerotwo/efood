@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
-import Dish from '../../models/Dish'
 import * as S from './styles'
 import closeIcon from '../../assets/images/close.png'
 import Button from '../Button'

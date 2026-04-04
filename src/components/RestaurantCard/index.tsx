@@ -1,4 +1,3 @@
-import Restaurant from '../../models/Restaurant'
 import { Link } from 'react-router-dom'
 import Tag from '../Tag'
 import Card from '../Card'
