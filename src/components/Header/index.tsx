@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
-import logo from '../../assets/images/logo.svg'
 import { HeaderBar, CartButton } from './styles'
+import Logo from '../Logo'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -17,9 +16,7 @@ const Header = () => {
     <HeaderBar>
       <div className="container">
         <h2>Restaurantes</h2>
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
+        <Logo />
         <CartButton onClick={openCart}>
           {items.length} produto(s) no carrinho
         </CartButton>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const BackGroundImage = styled.div`
   display: flex;
@@ -11,14 +12,18 @@ export const BackGroundImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 
-  img {
-    display: block;
-    height: 57.5px;
-  }
-
   h2 {
     font-size: 36px;
     font-weight: 900;
     text-align: center;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 284px;
+
+    h2 {
+      font-size: 28px;
+      padding: 0 24px;
+    }
   }
 `

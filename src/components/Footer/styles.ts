@@ -13,11 +13,6 @@ export const Container = styled.footer`
   padding: 40px 0px;
 `
 
-export const Logo = styled.img`
-  display: block;
-  height: 57.5px;
-`
-
 export const Links = styled.ul`
   display: flex;
 `

@@ -1,15 +1,12 @@
-import { Link } from 'react-router-dom'
-import { Container, Copyright, Icon, Links, Logo } from './styles'
-import logo from '../../assets/images/logo.svg'
+import { Container, Copyright, Icon, Links } from './styles'
 import instagram from '../../assets/images/instagram_logo.svg'
 import facebook from '../../assets/images/facebook_logo.svg'
 import twitter from '../../assets/images/twitter_logo.svg'
+import Logo from '../Logo'
 
 const Footer = () => (
   <Container>
-    <Link to="/">
-      <Logo src={logo} alt="efood logo" />
-    </Link>
+    <Logo />
     <Links>
       <li>
         <Icon

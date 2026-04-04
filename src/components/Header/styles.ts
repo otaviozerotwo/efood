@@ -21,20 +21,11 @@ export const HeaderBar = styled.header`
     font-weight: 900;
   }
 
-  img {
-    display: block;
-    height: 57.5px;
-  }
-
   @media (max-width: ${breakpoints.tablet}) {
     height: 144px;
 
     h2 {
       display: none;
-    }
-
-    img {
-      height: 44px;
     }
   }
 `
