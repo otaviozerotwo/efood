@@ -25,6 +25,13 @@ export const CartContainer = styled.div`
   &.is-open {
     display: flex;
   }
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.antiqueWhite};
+    text-align: center;
+  }
 `
 
 export const Prices = styled.div`

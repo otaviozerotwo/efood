@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import { RootReducer } from '../../store'
 import { usePurchaseMutation } from '../../services/api'
 import * as Yup from 'yup'
+import { IMaskInput } from 'react-imask'
 import { getTotalPrice, parseToBrl } from '../../utils'
 import Button from '../Button'
 import * as S from './styles'
@@ -245,14 +246,15 @@ const Checkout = () => {
                   <S.Row>
                     <S.InputGroup>
                       <label htmlFor="cep">CEP</label>
-                      <input
+                      <IMaskInput
                         id="cep"
-                        type="text"
+                        type="string"
                         name="cep"
                         value={form.values.cep}
                         onChange={form.handleChange}
                         onBlur={form.handleBlur}
                         className={checkInput('cep', 'error') ? 'error' : ''}
+                        mask="00000-000"
                       />
                     </S.InputGroup>
                     <S.InputGroup>
@@ -323,7 +325,7 @@ const Checkout = () => {
                   <S.Row>
                     <S.InputGroup>
                       <label htmlFor="cardNumber">Número do cartão</label>
-                      <input
+                      <IMaskInput
                         id="cardNumber"
                         type="text"
                         name="cardNumber"
@@ -333,11 +335,12 @@ const Checkout = () => {
                         className={
                           checkInput('cardNumber', 'error') ? 'error' : ''
                         }
+                        mask="0000 0000 0000 0000"
                       />
                     </S.InputGroup>
                     <S.InputGroup maxWidth="87px">
                       <label htmlFor="cardCode">CVV</label>
-                      <input
+                      <IMaskInput
                         id="cardCode"
                         type="text"
                         name="cardCode"
@@ -347,13 +350,14 @@ const Checkout = () => {
                         className={
                           checkInput('cardCode', 'error') ? 'error' : ''
                         }
+                        mask="000"
                       />
                     </S.InputGroup>
                   </S.Row>
                   <S.Row>
                     <S.InputGroup>
                       <label htmlFor="expiresMonth">Mês de vencimento</label>
-                      <input
+                      <IMaskInput
                         id="expiresMonth"
                         type="text"
                         name="expiresMonth"
@@ -363,11 +367,12 @@ const Checkout = () => {
                         className={
                           checkInput('expiresMonth', 'error') ? 'error' : ''
                         }
+                        mask="00"
                       />
                     </S.InputGroup>
                     <S.InputGroup>
                       <label htmlFor="expiresYear">Ano de vencimento</label>
-                      <input
+                      <IMaskInput
                         id="expiresYear"
                         type="text"
                         name="expiresYear"
@@ -377,6 +382,7 @@ const Checkout = () => {
                         className={
                           checkInput('expiresYear', 'error') ? 'error' : ''
                         }
+                        mask="0000"
                       />
                     </S.InputGroup>
                   </S.Row>

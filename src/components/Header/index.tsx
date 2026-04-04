@@ -17,7 +17,7 @@ const Header = () => {
       <div className="container">
         <h2>Restaurantes</h2>
         <Logo />
-        <S.CartButton onClick={openCart}>
+        <S.CartButton role="button" onClick={openCart}>
           {items.length} produto(s) no carrinho
         </S.CartButton>
       </div>

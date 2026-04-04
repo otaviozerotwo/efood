@@ -30,7 +30,7 @@ export const HeaderBar = styled.header`
   }
 `
 
-export const CartButton = styled.a`
+export const CartButton = styled.span`
   text-decoration: none;
   color: ${colors.lobisterPink};
   font-size: 18px;
