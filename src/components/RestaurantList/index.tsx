@@ -1,12 +1,14 @@
 import Restaurant from '../../models/Restaurant'
 import RestaurantCard from '../RestaurantCard'
 import Grid from '../Grid'
+import Loader from '../Loader'
 
 type Props = {
   restaurants: Restaurant[]
+  isLoading: boolean
 }
 
-const RestaurantList = ({ restaurants }: Props) => {
+const RestaurantList = ({ restaurants, isLoading }: Props) => {
   const getRestaurantTags = (restaurant: Restaurant) => {
     const tags = []
 
@@ -21,6 +23,11 @@ const RestaurantList = ({ restaurants }: Props) => {
 
     return tags
   }
+
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <>
       <div className="container">

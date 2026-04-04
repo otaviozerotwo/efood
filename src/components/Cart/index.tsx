@@ -8,14 +8,17 @@ import { Sidebar } from '../../styles'
 import { getTotalPrice, parseToBrl } from '../../utils'
 
 const Cart = () => {
+  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const location = useLocation()
   const navigate = useNavigate()
 
   const handleContinue = () => {
-    navigate('/checkout', { state: { background: location } })
+    if (items.length === 0) {
+      return alert('Selecione algum item para seguir com o pedido')
+    } else {
+      navigate('/checkout', { state: { background: location } })
+    }
   }
-
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
 

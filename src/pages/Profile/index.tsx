@@ -8,15 +8,19 @@ import Header from '../../components/Header'
 import Modal from '../../components/Modal'
 import Footer from '../../components/Footer'
 import Cart from '../../components/Cart'
+import Loader from '../../components/Loader'
+
+type RestaurantParams = {
+  id: string
+}
 
 const Profile = () => {
-  const { id } = useParams()
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const { data: restaurant } = useGetRestaurantQuery(id!)
+  const { id } = useParams() as RestaurantParams
+  const { data: restaurant, isLoading } = useGetRestaurantQuery(id)
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null)
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   const getDishes = () => {
@@ -35,8 +39,12 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <Banner restaurant={restaurant} />
-      <DishList dishes={getDishes()} onDishClick={handleOpenDishDetails} />
+      <Banner restaurant={restaurant} isLoading={isLoading} />
+      <DishList
+        dishes={getDishes()}
+        onDishClick={handleOpenDishDetails}
+        isLoading={isLoading}
+      />
       <Footer />
       {selectedDish ? (
         <Modal dish={selectedDish} onClose={handleCloseModal} />

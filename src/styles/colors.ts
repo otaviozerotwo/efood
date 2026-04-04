@@ -3,5 +3,6 @@ export default {
   seashell: '#FFF8F2',
   antiqueWhite: '#FFEBD9',
   lobisterPink: '#E66767',
-  black: '#000000'
+  black: '#000000',
+  darkRed: '#950606'
 }
