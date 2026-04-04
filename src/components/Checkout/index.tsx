@@ -174,7 +174,7 @@ const Checkout = () => {
     <S.Container>
       <Sidebar>
         <S.Form onSubmit={form.handleSubmit}>
-          {isSuccess ? (
+          {isSuccess && data ? (
             <>
               <h2>Pedido realizado - {data.orderId}</h2>
               <p>
