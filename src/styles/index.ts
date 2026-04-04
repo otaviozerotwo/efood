@@ -33,8 +33,10 @@ const GlobalStyle = createGlobalStyle`
 
 export const Sidebar = styled.aside`
   background-color: ${colors.lobisterPink};
-  padding: 32px 8px 0 8px;
+  padding: 32px 8px;
   max-width: 360px;
+  max-height: 100vh;
+  overflow-y: auto;
   width: 100%;
   z-index: 1;
 `
